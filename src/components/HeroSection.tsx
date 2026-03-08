@@ -23,7 +23,7 @@ const HeroSection = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#contact" className="btn-filled text-base py-3.5 px-8">
+          <a href="/bookings" className="btn-filled text-base py-3.5 px-8">
             Start Automating Today
             <ArrowRight className="w-4 h-4" />
           </a>
