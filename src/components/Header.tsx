@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
+import ThemeToggle from "./ThemeToggle";
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -52,19 +53,24 @@ const Header = () => {
                 {link.label}
               </button>
             ))}
+            <ThemeToggle />
             <a href="/bookings" className="btn-filled text-sm py-2.5 px-5">
               Book a Call
             </a>
           </nav>
 
           {/* Mobile Toggle */}
-          <button
-            className="md:hidden text-foreground"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle />
+            <button
+              className="text-foreground"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+
         </div>
 
         {/* Mobile Nav */}
