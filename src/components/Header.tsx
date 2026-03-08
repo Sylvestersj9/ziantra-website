@@ -30,7 +30,7 @@ const Header = () => {
                 {link.label}
               </a>
             ))}
-            <a href="#contact" className="btn-filled text-sm py-2.5 px-5">
+            <a href="/bookings" className="btn-filled text-sm py-2.5 px-5">
               Book a Call
             </a>
           </nav>
