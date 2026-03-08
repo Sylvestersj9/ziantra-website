@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const navLinks = [
     { label: "Solutions", href: "#solutions" },
@@ -11,24 +14,43 @@ const Header = () => {
     { label: "FAQ", href: "#faq" },
   ];
 
+  const handleNavClick = (href: string) => {
+    setMobileOpen(false);
+    if (location.pathname !== "/") {
+      navigate("/" + href);
+    } else {
+      const el = document.querySelector(href);
+      el?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleLogoClick = () => {
+    setMobileOpen(false);
+    if (location.pathname !== "/") {
+      navigate("/");
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
       <div className="section-padding py-4">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
-          <a href="#" className="font-display text-2xl font-bold tracking-tight">
+          <button onClick={handleLogoClick} className="font-display text-2xl font-bold tracking-tight">
             Ziantra
-          </a>
+          </button>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <button
                 key={link.label}
-                href={link.href}
+                onClick={() => handleNavClick(link.href)}
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 {link.label}
-              </a>
+              </button>
             ))}
             <a href="/bookings" className="btn-filled text-sm py-2.5 px-5">
               Book a Call
@@ -49,14 +71,13 @@ const Header = () => {
         {mobileOpen && (
           <nav className="md:hidden pt-4 pb-2 flex flex-col gap-3">
             {navLinks.map((link) => (
-              <a
+              <button
                 key={link.label}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
+                onClick={() => handleNavClick(link.href)}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2 text-left"
               >
                 {link.label}
-              </a>
+              </button>
             ))}
             <a
               href="/bookings"
