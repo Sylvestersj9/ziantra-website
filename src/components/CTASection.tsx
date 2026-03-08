@@ -14,7 +14,7 @@ const CTASection = () => {
           Join forward-thinking businesses that are scaling faster, saving more, and working smarter with AI automation.
         </p>
 
-        <a href="mailto:sylvester@ziantra.co.uk" className="btn-filled text-base py-4 px-10 mb-4 inline-flex">
+        <a href="/bookings" className="btn-filled text-base py-4 px-10 mb-4 inline-flex">
           Book Your Free Consultation
           <ArrowRight className="w-4 h-4" />
         </a>
