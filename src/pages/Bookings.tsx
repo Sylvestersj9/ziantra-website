@@ -1,19 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { useEffect } from "react";
 
 const Bookings = () => {
-  useEffect(() => {
-    // Load Cal.com embed script
-    const script = document.createElement("script");
-    script.src = "https://app.cal.com/embed/embed.js";
-    script.async = true;
-    document.body.appendChild(script);
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -39,6 +27,7 @@ const Bookings = () => {
             className="w-full border-0"
             style={{ height: "700px" }}
             title="Book a consultation with Ziantra"
+            allow="payment"
           />
         </div>
       </main>
