@@ -1,75 +1,43 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Lora:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Perspective Blog Design System - Warm & Vibrant */
-
 @layer base {
   :root {
-    /* Base Colors - Warm Cream Theme */
-    --background: 32 71% 91%; /* #fce5cf - Warm cream */
-    --foreground: 0 0% 0%; /* Pure black */
+    --background: 220 20% 4%;
+    --foreground: 0 0% 98%;
 
-    /* Card Colors */
-    --card: 32 71% 91%;
-    --card-foreground: 0 0% 0%;
+    --card: 220 18% 8%;
+    --card-foreground: 0 0% 98%;
 
-    /* Primary Action Colors */
-    --primary: 322 82% 83%; /* #f7b0e0 - Lavender */
-    --primary-foreground: 0 0% 0%;
-    --primary-hover: 29 100% 50%; /* #fc8500 - Orange */
+    --primary: 160 84% 39%;
+    --primary-foreground: 220 20% 4%;
+    --primary-hover: 160 84% 45%;
 
-    /* Secondary Actions */
-    --secondary: 288 38% 40%; /* #7C3F8D - Deep Purple */
-    --secondary-foreground: 0 0% 100%;
-    --secondary-hover: 288 38% 32%; /* #6B3678 - Purple Hover */
+    --secondary: 220 16% 14%;
+    --secondary-foreground: 0 0% 98%;
+    --secondary-hover: 220 16% 18%;
 
-    /* Accent Colors */
-    --accent-red: 16 100% 50%; /* #ff5400 */
-    --accent-pink: 332 100% 73%; /* #ff75ba */
+    --muted: 220 14% 12%;
+    --muted-foreground: 220 10% 55%;
 
-    /* Vibrant Card Backgrounds */
-    --card-yellow: 45 91% 62%; /* #F6C744 */
-    --card-purple: 273 61% 78%; /* #C8A8E9 */
-    --card-magenta: 321 68% 57%; /* #D946A0 */
-    --card-blue: 199 92% 73%; /* #7DD3FC */
-    --card-coral: 349 89% 72%; /* #FB7185 */
-    --card-mint: 156 72% 67%; /* #6EE7B7 */
-    --card-orange: 24 90% 61%; /* #FB923C */
-    --card-lavender: 248 84% 84%; /* #C4B5FD */
+    --accent: 265 80% 60%;
+    --accent-foreground: 0 0% 98%;
 
-    /* Dark Mode Colors */
-    --dark-background: 20 18% 16%; /* #2D2520 */
-    --dark-card: 20 14% 25%; /* #4A3F37 */
-    --dark-muted: 20 12% 37%; /* #6B5D52 */
+    --glow-primary: 160 84% 39%;
+    --glow-accent: 265 80% 60%;
 
-    /* Status Colors */
-    --success: 158 64% 52%; /* #10b981 */
-    --warning: 38 92% 50%; /* #f59e0b */
-    --error: 0 84% 60%; /* #ef4444 */
-    --info: 188 86% 43%; /* #06b6d4 */
+    --border: 220 14% 16%;
+    --input: 220 14% 16%;
+    --ring: 160 84% 39%;
+    --radius: 0.75rem;
 
-    /* UI Elements */
-    --border: 0 0% 0%;
-    --input: 0 0% 0%;
-    --ring: 288 38% 40%;
-    --radius: 1.5rem;
-
-    /* Transitions */
-    --transition-fast: 150ms ease-in-out;
-    --transition-medium: 300ms ease-in-out;
-    --transition-slow: 500ms cubic-bezier(0.34, 1, 0.64, 1);
-  }
-
-  .dark {
-    --background: 20 18% 16%; /* #2D2520 */
-    --foreground: 32 71% 91%; /* #fce5cf */
-    --card: 20 14% 25%;
-    --card-foreground: 32 71% 91%;
-    --border: 20 12% 37%;
-    --input: 20 12% 37%;
+    --success: 158 64% 52%;
+    --warning: 38 92% 50%;
+    --error: 0 84% 60%;
+    --info: 188 86% 43%;
   }
 }
 
@@ -83,93 +51,53 @@
   }
 
   body {
-    @apply bg-background text-foreground;
-    font-family: "Lora", Georgia, serif;
+    @apply bg-background text-foreground antialiased;
+    font-family: "Inter", system-ui, sans-serif;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  button,
-  nav,
-  .heading,
-  .sans-serif {
-    font-family: "Supreme", system-ui, -apple-system, sans-serif;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Space Grotesk", system-ui, sans-serif;
   }
 }
 
 @layer components {
-  /* Button Styles - Two Variants Only */
   .btn-filled {
-    @apply bg-[hsl(var(--primary))] hover:bg-[hsl(var(--primary-hover))] 
-           border-2 border-foreground text-foreground uppercase font-bold 
-           py-3 px-7 rounded-full inline-flex items-center gap-2 
-           transition-all duration-200;
-    transition-timing-function: cubic-bezier(0.34, 1, 0.64, 1);
+    @apply bg-primary hover:bg-primary-hover
+           border-0 text-primary-foreground font-semibold
+           py-3 px-7 rounded-lg inline-flex items-center gap-2
+           transition-all duration-300;
+    box-shadow: 0 0 20px hsl(var(--glow-primary) / 0.3);
+  }
+
+  .btn-filled:hover {
+    box-shadow: 0 0 30px hsl(var(--glow-primary) / 0.5);
   }
 
   .btn-transparent {
-    @apply bg-transparent hover:bg-foreground hover:text-background
-           border-2 border-foreground text-foreground uppercase font-bold 
-           py-3 px-7 rounded-full inline-flex items-center gap-2 
-           transition-all duration-200;
+    @apply bg-transparent hover:bg-secondary
+           border border-border text-foreground font-semibold
+           py-3 px-7 rounded-lg inline-flex items-center gap-2
+           transition-all duration-300;
   }
 
-  /* Card Hover Effect */
   .card-hover {
-    @apply transition-transform duration-500 hover:scale-[1.02];
+    @apply transition-all duration-500 hover:scale-[1.02];
     transition-timing-function: cubic-bezier(0.34, 1, 0.64, 1);
   }
 
-  /* Typography Styles */
-  .heading-xl {
-    @apply font-black text-6xl md:text-8xl lg:text-9xl uppercase 
-           tracking-tighter leading-[0.72];
+  .glass-card {
+    @apply bg-card/60 backdrop-blur-xl border border-border rounded-2xl;
   }
 
-  .heading-lg {
-    @apply font-extrabold md:font-black text-3xl md:text-5xl lg:text-5xl
-           tracking-normal leading-tight;
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
   }
 
-  .heading-md {
-    @apply font-extrabold text-2xl md:text-3xl tracking-normal;
+  .glow-border {
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.2), 0 0 40px -10px hsl(var(--primary) / 0.15);
   }
 
-  .heading-sm {
-    @apply font-bold text-xl uppercase tracking-tight;
-  }
-
-  .nav-text {
-    @apply uppercase font-bold text-sm tracking-[1.8px];
-  }
-
-  .body-text {
-    @apply font-normal leading-[1.25] text-[2rem] md:text-[3.2rem];
-    font-family: "Lora", Georgia, serif;
-  }
-
-  /* Footer Styles */
-  .footer-header {
-    @apply uppercase font-bold text-xs md:text-sm tracking-[1.8px] text-foreground mb-3 md:mb-4;
-  }
-
-  .footer-link {
-    @apply underline decoration-2 text-sm md:text-base text-foreground
-           hover:opacity-70 transition-opacity duration-200;
-  }
-
-  /* Article Title with Responsive Sizing */
-  .article-title {
-    font-size: 120px;
-  }
-
-  @media (max-width: 700px) {
-    .article-title {
-      font-size: 60px;
-    }
+  .section-padding {
+    @apply px-5 md:px-12 lg:px-20;
   }
 }

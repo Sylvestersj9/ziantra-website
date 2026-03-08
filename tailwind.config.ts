@@ -18,12 +18,9 @@ export default {
       },
     },
     extend: {
-      screens: {
-        "sm-590": "590px",
-      },
       fontFamily: {
-        sans: ["Supreme", "system-ui", "-apple-system", "sans-serif"],
-        serif: ["Lora", "Georgia", "serif"],
+        sans: ["Inter", "system-ui", "sans-serif"],
+        display: ["Space Grotesk", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -41,25 +38,13 @@ export default {
           foreground: "hsl(var(--secondary-foreground))",
           hover: "hsl(var(--secondary-hover))",
         },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
         accent: {
-          red: "hsl(var(--accent-red))",
-          pink: "hsl(var(--accent-pink))",
-        },
-        vibrant: {
-          yellow: "hsl(var(--card-yellow))",
-          purple: "hsl(var(--card-purple))",
-          magenta: "hsl(var(--card-magenta))",
-          blue: "hsl(var(--card-blue))",
-          coral: "hsl(var(--card-coral))",
-          mint: "hsl(var(--card-mint))",
-          orange: "hsl(var(--card-orange))",
-          lavender: "hsl(var(--card-lavender))",
-        },
-        status: {
-          success: "hsl(var(--success))",
-          warning: "hsl(var(--warning))",
-          error: "hsl(var(--error))",
-          info: "hsl(var(--info))",
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
         },
         card: {
           DEFAULT: "hsl(var(--card))",
@@ -73,25 +58,27 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "float": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        "pulse-glow": {
+          "0%, 100%": { opacity: "0.4" },
+          "50%": { opacity: "0.8" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "float": "float 6s ease-in-out infinite",
+        "pulse-glow": "pulse-glow 3s ease-in-out infinite",
       },
     },
   },
