@@ -53,10 +53,23 @@ const Header = () => {
                 {link.label}
               </button>
             ))}
+            <ThemeToggle />
             <a href="/bookings" className="btn-filled text-sm py-2.5 px-5">
               Book a Call
             </a>
           </nav>
+
+          {/* Mobile Toggle */}
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle />
+            <button
+              className="text-foreground"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
 
           {/* Mobile Toggle */}
           <button
