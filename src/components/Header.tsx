@@ -65,8 +65,6 @@ const Header = () => {
             >
               Book a Call
             </a>
-              Book a Call
-            </a>
           </nav>
         )}
       </div>
