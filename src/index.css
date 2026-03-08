@@ -12,22 +12,22 @@
     --card: 220 18% 8%;
     --card-foreground: 0 0% 98%;
 
-    --primary: 199 89% 48%;
-    --primary-foreground: 220 25% 4%;
-    --primary-hover: 199 89% 55%;
+    --primary: 38 92% 50%;
+    --primary-foreground: 20 20% 4%;
+    --primary-hover: 38 92% 58%;
 
-    --secondary: 215 20% 12%;
+    --secondary: 20 16% 12%;
     --secondary-foreground: 0 0% 98%;
-    --secondary-hover: 215 20% 16%;
+    --secondary-hover: 20 16% 16%;
 
-    --muted: 215 18% 10%;
-    --muted-foreground: 215 12% 50%;
+    --muted: 20 14% 10%;
+    --muted-foreground: 30 10% 50%;
 
-    --accent: 185 80% 45%;
-    --accent-foreground: 220 25% 4%;
+    --accent: 28 85% 55%;
+    --accent-foreground: 20 20% 4%;
 
-    --glow-primary: 199 89% 48%;
-    --glow-accent: 185 80% 45%;
+    --glow-primary: 38 92% 50%;
+    --glow-accent: 28 85% 55%;
 
     --border: 220 14% 16%;
     --input: 220 14% 16%;
