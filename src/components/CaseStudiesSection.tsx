@@ -1,4 +1,5 @@
 import { ArrowRight, Headphones, TrendingUp, Database } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
 
 const caseStudies = [
   {
@@ -25,27 +26,31 @@ const CaseStudiesSection = () => {
   return (
     <section id="work" className="section-padding py-20 md:py-28">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">Success Stories</h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Real results from businesses we've transformed
-          </p>
-        </div>
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">Success Stories</h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Real results from businesses we've transformed
+            </p>
+          </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {caseStudies.map((study) => (
-            <div key={study.title} className="glass-card overflow-hidden group hover:border-primary/30 transition-all duration-300">
-              <div className={`bg-gradient-to-b ${study.color} p-8 flex items-center justify-center`}>
-                <study.icon className="w-12 h-12 text-foreground/80" />
+          {caseStudies.map((study, i) => (
+            <ScrollReveal key={study.title} delay={i * 0.12}>
+              <div className="glass-card overflow-hidden group hover:border-primary/30 transition-all duration-300 h-full">
+                <div className={`bg-gradient-to-b ${study.color} p-8 flex items-center justify-center`}>
+                  <study.icon className="w-12 h-12 text-foreground/80" />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-display text-lg font-semibold mb-2">{study.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">{study.description}</p>
+                  <button className="text-sm text-primary font-medium inline-flex items-center gap-1 hover:gap-2 transition-all">
+                    Read Case Study <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
               </div>
-              <div className="p-6">
-                <h3 className="font-display text-lg font-semibold mb-2">{study.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4">{study.description}</p>
-                <button className="text-sm text-primary font-medium inline-flex items-center gap-1 hover:gap-2 transition-all">
-                  Read Case Study <ArrowRight className="w-3.5 h-3.5" />
-                </button>
-              </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
