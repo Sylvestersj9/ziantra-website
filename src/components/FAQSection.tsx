@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import ScrollReveal from "./ScrollReveal";
 
 const faqs = [
   {
@@ -35,37 +36,41 @@ const FAQSection = () => {
   return (
     <section id="faq" className="section-padding py-20 md:py-28 bg-card/40">
       <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">FAQ</h2>
-          <p className="text-muted-foreground text-lg">Everything you need to know</p>
-        </div>
+        <ScrollReveal>
+          <div className="text-center mb-16">
+            <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">FAQ</h2>
+            <p className="text-muted-foreground text-lg">Everything you need to know</p>
+          </div>
+        </ScrollReveal>
 
         <div className="space-y-3">
           {faqs.map((faq, index) => (
-            <div key={index} className="glass-card overflow-hidden">
-              <button
-                onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex items-center justify-between p-5 text-left hover:bg-secondary/30 transition-colors"
-              >
-                <span className="font-display font-semibold text-sm md:text-base pr-4">{faq.question}</span>
-                <ChevronDown
+            <ScrollReveal key={index} delay={index * 0.06}>
+              <div className="glass-card overflow-hidden">
+                <button
+                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                  className="w-full flex items-center justify-between p-5 text-left hover:bg-secondary/30 transition-colors"
+                >
+                  <span className="font-display font-semibold text-sm md:text-base pr-4">{faq.question}</span>
+                  <ChevronDown
+                    className={cn(
+                      "w-5 h-5 text-muted-foreground flex-shrink-0 transition-transform duration-300",
+                      openIndex === index && "rotate-180"
+                    )}
+                  />
+                </button>
+                <div
                   className={cn(
-                    "w-5 h-5 text-muted-foreground flex-shrink-0 transition-transform duration-300",
-                    openIndex === index && "rotate-180"
+                    "overflow-hidden transition-all duration-300",
+                    openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                   )}
-                />
-              </button>
-              <div
-                className={cn(
-                  "overflow-hidden transition-all duration-300",
-                  openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                )}
-              >
-                <p className="px-5 pb-5 text-sm text-muted-foreground leading-relaxed">
-                  {faq.answer}
-                </p>
+                >
+                  <p className="px-5 pb-5 text-sm text-muted-foreground leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>
